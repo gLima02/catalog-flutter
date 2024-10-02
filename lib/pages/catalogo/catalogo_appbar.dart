@@ -1,4 +1,6 @@
+import 'package:cart_provider_demo/models/carrinho.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CatalogoAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CatalogoAppBar({Key? key}) : super(key: key);
@@ -6,6 +8,8 @@ class CatalogoAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     print('BUILD: CatalogoAppBar');
+    final carrinho = context.watch<CarrinhoModel>();
+    final total = carrinho.items.length;
 
     return AppBar(
       title: const Text('Catalogo'),
@@ -13,7 +17,7 @@ class CatalogoAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: Badge(
             label: Text(
-              '0',
+              '$total',
               style: TextStyle(color: Colors.white),
             ),
             child: const Icon(

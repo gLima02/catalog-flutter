@@ -1,9 +1,14 @@
+import 'package:cart_provider_demo/models/carrinho.dart';
 import 'package:cart_provider_demo/pages/carrinho/carrinho_page.dart';
 import 'package:cart_provider_demo/pages/catalogo/catalogo_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => CarrinhoModel(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {

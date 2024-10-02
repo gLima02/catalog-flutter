@@ -9,6 +9,7 @@ class CarrinhoModel extends ChangeNotifier {
 
   void add(Item item) {
     _items.add(item);
+    notifyListeners();
   }
 
   void remove(Item item) {
